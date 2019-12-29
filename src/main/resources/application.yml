@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/elasticsearch?useUnicode=true&characterEncoding=UTF-8&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+    password: root
+  #jpa相关配置
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: validate #hibernate启动的时候只做表的格式验证，不做增删改的操作
+  data:
+    elasticsearch:
+      #cluster-nodes: localhost:9300
+      cluster-name: lfq-es
+
+  devtools:
+    livereload:
+      enabled: true
+    restart:
+      additional-paths: static/**
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss #日期格式化
+
+
