@@ -17,7 +17,6 @@ public class TestController {
     @Autowired
     private MysqlRepository mysqlRepository;
     @GetMapping("/")
-    @ResponseBody
     public String index(){
         return "index";
     }
