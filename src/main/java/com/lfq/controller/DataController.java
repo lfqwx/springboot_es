@@ -10,10 +10,7 @@ import org.elasticsearch.index.query.QueryBuilders;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.util.StopWatch;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.HashMap;
 import java.util.List;
@@ -65,6 +62,11 @@ public class DataController {
         return map;
     }
 
+    @GetMapping("/blog/{id}")
+    public Object blog(@PathVariable("id") Integer id){
+        System.out.println("id:"+id);
+        return mysqlRepository.findOne(id);
+    }
 
 
 
@@ -72,7 +74,7 @@ public class DataController {
      * 内部Param参数类
      */
     @Data
-    public class Param{
+    public static class Param{
         private String type;//使用的查询方式
         private String keyword;//查询的关键字
     }
